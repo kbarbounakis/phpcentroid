@@ -9,12 +9,14 @@ final class QueryEntityTest extends TestCase
     {
         $entity = new QueryEntity('ProductBase');
         $this->assertNotNull($entity->getCollection());
+        $this->assertEquals('ProductBase', $entity->getCollection());
     }
 
     public function testGetAlias(): void
     {
         $entity = new QueryEntity('ProductBase', 'Products');
-        $this->assertEquals($entity->getCollection(), 'ProductBase');
-        $this->assertEquals($entity->getAlias(), 'Products');
+        var_dump(json_encode($entity));
+        $this->assertEquals('ProductBase', $entity->getCollection());
+        $this->assertEquals('Products', $entity->getAlias());
     }
 }
